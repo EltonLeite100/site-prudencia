@@ -204,27 +204,31 @@ const HomePage = ({ navigate }) => (
     className="relative min-h-screen flex items-center justify-center"
     style={layerStyle('/home-offshore-hero.png')}
   >
-    <div className="absolute inset-0 bg-slate-900/40"></div>
+    <div className="absolute inset-0 bg-black/20"></div>
 
-    <div className="relative z-10 text-center px-4 max-w-5xl mx-auto flex flex-col items-center mt-16 page-content-reveal">
-      <div className="bg-slate-900/60 backdrop-blur-md p-10 md:p-16 rounded-3xl border border-white/10 shadow-2xl">
-        <ShieldCheck className="h-24 w-24 text-amber-500 mx-auto mb-6" />
-        <h1 className="text-5xl md:text-8xl font-bold text-white mb-4 tracking-tight drop-shadow-xl">
-          PRUDÊNCIA
-        </h1>
-        <div className="w-32 h-1.5 bg-amber-500 mx-auto mb-8 rounded-full"></div>
-        <h2 className="text-2xl md:text-4xl text-gray-200 uppercase tracking-widest mb-6 font-light">
-          Engenharia & Consultoria
-        </h2>
-        <p className="text-xl md:text-3xl text-amber-400 italic font-light mb-10 text-center">
-          Global HSEQ Advisory for Complex Projects
-        </p>
-        <button
-          onClick={() => navigate('sobre')}
-          className="inline-flex items-center gap-3 bg-amber-500 text-slate-900 px-8 py-4 rounded-full font-bold text-lg hover:bg-amber-400 transition-all hover:scale-105 shadow-lg"
-        >
-          Conhecer a Empresa <ArrowRight className="h-5 w-5" />
-        </button>
+    <div className="relative z-10 text-center px-4 max-w-5xl mx-auto flex flex-col items-center justify-center page-content-reveal" style={{ paddingTop: '80px' }}>
+      <div className="flex flex-col items-center gap-8">
+        <div className="bg-slate-400/65 backdrop-blur-md p-4 md:p-8 rounded-3xl shadow-2xl border border-white/25">
+          <img
+            src={resolveAsset('/LOGO NOVA PRUDÊNCIA.JPG-sem fundo.png')}
+            alt="Logo Prudência Engenharia e Consultoria"
+            className="w-auto object-contain mx-auto mb-3"
+            style={{
+              height: '550px',
+              filter: 'drop-shadow(0 10px 30px rgba(0, 0, 0, 0.3))',
+              animation: 'fadeIn 0.8s ease-out'
+            }}
+          />
+          <button
+            onClick={() => navigate('sobre')}
+            className="inline-flex items-center gap-3 bg-amber-500 text-slate-900 px-10 py-4 rounded-full font-bold text-lg hover:bg-amber-400 transition-all duration-300 hover:scale-110 shadow-2xl hover:shadow-amber-500/60"
+            style={{
+              animation: 'fadeIn 1s ease-out 0.5s both'
+            }}
+          >
+            Conhecer a Empresa <ArrowRight className="h-5 w-5" />
+          </button>
+        </div>
       </div>
     </div>
   </section>
@@ -689,16 +693,16 @@ const NewApp = () => {
 
   return (
     <div className="bg-black font-sans text-slate-800 min-h-screen flex flex-col">
-      <nav className={`fixed w-full top-0 z-50 transition-all duration-300 ${scrolled || currentPage !== 'home' ? 'bg-slate-950/95 backdrop-blur-xl shadow-2xl py-3 border-b border-white/5' : 'bg-transparent py-6'}`}>
+      <nav className={`fixed w-full top-0 z-50 transition-all duration-300 ${currentPage === 'home' ? 'backdrop-blur-0 bg-transparent border-transparent' : 'backdrop-blur-xl bg-slate-950/35 border-b border-white/10'} ${scrolled || currentPage !== 'home' ? 'shadow-2xl py-3' : 'py-4'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center">
-            <div className="flex items-center gap-3 cursor-pointer group" onClick={() => navigate('home')}>
-              <div className="bg-white/10 p-2 rounded-xl backdrop-blur-sm group-hover:bg-amber-500/20 transition duration-300">
-                <ShieldCheck className="h-8 w-8 text-amber-500" />
-              </div>
-              <div className="flex flex-col">
-                <span className="font-bold text-xl md:text-2xl tracking-wider leading-none text-white drop-shadow-lg group-hover:text-amber-400 transition duration-300">PRUDÊNCIA</span>
-                <span className="text-[9px] md:text-[10px] tracking-widest text-amber-400 uppercase leading-none mt-1.5">Engenharia & Consultoria</span>
+            <div className="flex items-center cursor-pointer group" onClick={() => navigate('home')}>
+              <div className={`p-2 rounded-xl shadow-lg border transition duration-300 group-hover:scale-[1.02] ${currentPage === 'home' ? 'bg-slate-400/65 border-white/25' : 'bg-white/90 border-white/50'}`}>
+                <img
+                  src={resolveAsset('/LOGO NOVA PRUDÊNCIA.JPG-sem fundo.png')}
+                  alt="Logo Prudência Engenharia e Consultoria"
+                  className="h-12 md:h-16 w-auto object-contain"
+                />
               </div>
             </div>
 
