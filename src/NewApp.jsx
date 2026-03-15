@@ -312,6 +312,7 @@ const SobrePage = () => (
 
 const AtuacaoPage = () => {
   const [activeArea, setActiveArea] = useState(null);
+  // Force rebuild: 2026-03-15
 
   const areas = [
     { title: 'Petróleo e Gás', icon: Droplet },
