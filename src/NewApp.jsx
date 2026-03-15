@@ -314,6 +314,11 @@ const AtuacaoPage = () => {
   const [activeArea, setActiveArea] = useState(null);
   // Force rebuild: 2026-03-15
 
+  const handleAreaClick = (title) => {
+    console.log('Clicou em:', title);
+    setActiveArea(title);
+  };
+
   const areas = [
     { title: 'Petróleo e Gás', icon: Droplet },
     { title: 'Offshore e Marítimo', icon: Anchor },
@@ -528,7 +533,7 @@ const AtuacaoPage = () => {
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
           {areas.map((area, index) => (
-            <button key={index} type="button" onClick={() => setActiveArea(area.title)} className="bg-white/10 backdrop-blur-md border border-white/20 p-8 rounded-2xl text-center hover:bg-amber-500/90 group transition-all duration-300 cursor-pointer shadow-lg hover:shadow-amber-500/20 hover:-translate-y-2">
+            <button key={index} type="button" onClick={() => handleAreaClick(area.title)} className="bg-white/10 backdrop-blur-md border border-white/20 p-8 rounded-2xl text-center hover:bg-amber-500/90 group transition-all duration-300 cursor-pointer shadow-lg hover:shadow-amber-500/20 hover:-translate-y-2">
               <area.icon className="h-12 w-12 text-amber-400 group-hover:text-slate-900 mx-auto mb-4 transition duration-300" />
               <h3 className="text-lg font-bold text-white group-hover:text-slate-900 transition duration-300">{area.title}</h3>
             </button>
