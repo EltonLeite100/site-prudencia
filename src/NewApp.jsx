@@ -17,6 +17,15 @@ import {
   Zap,
   AlertTriangle,
   ArrowRight,
+  Building2,
+  Cog,
+  Hammer,
+  Package,
+  Wrench,
+  Clock,
+  TrendingUp,
+  Shield,
+  Mail,
 } from 'lucide-react';
 
 const resolveAsset = (imgPath) => `${import.meta.env.BASE_URL}${imgPath.replace(/^\/+/, '')}`;
@@ -301,44 +310,233 @@ const SobrePage = () => (
   </section>
 );
 
-const AtuacaoPage = () => (
-  <section
-    className="relative min-h-screen pt-32 pb-20"
-    style={layerStyle('/atuacao-porto-industrial.png')}
-  >
-    <div className="absolute inset-0 bg-slate-900/70"></div>
+const AtuacaoPage = () => {
+  const [activeArea, setActiveArea] = useState(null);
 
-    <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex flex-col justify-center min-h-[calc(100vh-10rem)] page-content-reveal">
-      <div className="text-center mb-16">
-        <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Onde Atuamos</h2>
-        <div className="w-24 h-1 bg-amber-500 mx-auto"></div>
-        <p className="mt-6 text-xl text-gray-300 max-w-2xl mx-auto font-light text-center">
-          Especialistas em segurança para operações complexas e de alto risco.
-        </p>
-      </div>
+  const areas = [
+    { title: 'Petróleo e Gás', icon: Droplet },
+    { title: 'Offshore e Marítimo', icon: Anchor },
+    { title: 'Portuário', icon: MapPin },
+    { title: 'Industrial', icon: Target },
+    { title: 'Construção Civil', icon: HardHat },
+    { title: 'Energia', icon: Zap },
+    { title: 'Logística', icon: Briefcase },
+    { title: 'Estaleiros e Obras', icon: ShieldCheck },
+    { title: 'FPSO e Plataformas', icon: Anchor },
+    { title: 'Infraestrutura', icon: HardHat },
+  ];
 
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-        {[
-          { title: 'Petróleo e Gás', icon: Droplet },
-          { title: 'Offshore e Marítimo', icon: Anchor },
-          { title: 'Portuário', icon: MapPin },
-          { title: 'Industrial', icon: Target },
-          { title: 'Construção Civil', icon: HardHat },
-          { title: 'Energia', icon: Zap },
-          { title: 'Logística', icon: Briefcase },
-          { title: 'Estaleiros e Obras', icon: ShieldCheck },
-          { title: 'FPSO e Plataformas', icon: Anchor },
-          { title: 'Infraestrutura', icon: HardHat },
-        ].map((area, index) => (
-          <div key={index} className="bg-white/10 backdrop-blur-md border border-white/20 p-8 rounded-2xl text-center hover:bg-amber-500/90 group transition-all duration-300 cursor-pointer shadow-lg hover:shadow-amber-500/20 hover:-translate-y-2">
-            <area.icon className="h-12 w-12 text-amber-400 group-hover:text-slate-900 mx-auto mb-4 transition duration-300" />
-            <h3 className="text-lg font-bold text-white group-hover:text-slate-900 transition duration-300">{area.title}</h3>
+  if (activeArea === 'Construção Civil') {
+    return (
+      <section className="relative min-h-screen pt-0 pb-20 animate-fadeIn bg-slate-900">
+        <div className="relative h-[55vh] md:h-[65vh] bg-cover bg-center overflow-hidden" style={layerStyle('/construcao-civil-hero.png')}>
+          <div className="absolute inset-0 bg-gradient-to-b from-slate-900/20 via-slate-900/40 to-slate-900"></div>
+          <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-12">
+            <div className="max-w-7xl mx-auto w-full">
+              <button onClick={() => setActiveArea(null)} className="flex items-center gap-2 text-amber-400 hover:text-amber-300 font-bold mb-6 transition">← Voltar</button>
+              <h1 className="text-5xl md:text-6xl font-bold text-white mb-3">Construção Civil</h1>
+              <div className="w-24 h-1 bg-amber-500 mb-4"></div>
+              <p className="text-xl text-amber-200 max-w-2xl">Soluções integradas de engenharia, consultoria e execução</p>
+            </div>
           </div>
-        ))}
+        </div>
+
+        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 w-full page-content-reveal pt-12 mb-32">
+          <div className="space-y-6 mb-20">
+            <div>
+              <h2 className="text-4xl font-semibold text-white mb-4">Capacidade Técnica</h2>
+              <div className="w-12 h-1 bg-slate-300 rounded-full"></div>
+            </div>
+            <p className="text-base text-gray-300 leading-relaxed max-w-3xl">A PRUDÊNCIA Engenharia & Consultoria possui sólida experiência no desenvolvimento de projetos, consultoria técnica e execução de obras em infraestrutura, indústria, logística, energia, petróleo e gás.</p>
+            <div className="flex flex-wrap gap-2 pt-2">
+              <span className="px-3 py-1 bg-slate-700/50 text-slate-200 text-sm rounded-full font-medium">30+ Anos</span>
+              <span className="px-3 py-1 bg-slate-700/50 text-slate-200 text-sm rounded-full font-medium">Estrutura Própria</span>
+              <span className="px-3 py-1 bg-slate-700/50 text-slate-200 text-sm rounded-full font-medium">Mobilização Ágil</span>
+            </div>
+          </div>
+
+          <div className="space-y-20">
+            <section>
+              <div className="mb-8">
+                <h3 className="text-3xl font-semibold text-white mb-2">Estrutura Operacional</h3>
+                <div className="w-12 h-1 bg-slate-300 rounded-full"></div>
+              </div>
+              <p className="text-gray-300 mb-12 max-w-3xl leading-relaxed">Estrutura própria com unidades modulares containerizadas para mobilização rápida de canteiros e frentes de trabalho.</p>
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {[
+                  { icon: Building2, text: 'Construção Civil' },
+                  { icon: Cog, text: 'Montagem Industrial' },
+                  { icon: Hammer, text: 'Infraestrutura' },
+                  { icon: Wrench, text: 'Manutenção' },
+                  { icon: Package, text: 'Logística' },
+                  { icon: Users, text: 'Serviços Técnicos' },
+                ].map((item) => (
+                  <div key={item.text} className="group flex flex-col items-start gap-4 pb-6 border-b border-slate-700 hover:border-slate-500 transition">
+                    <div className="p-2 rounded-lg"><item.icon className="h-6 w-6 text-slate-400 group-hover:text-slate-200 transition" /></div>
+                    <p className="font-medium text-gray-200 group-hover:text-white transition">{item.text}</p>
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            <section className="pt-8">
+              <div className="mb-12">
+                <h3 className="text-4xl font-semibold text-white mb-3">Estrutura Containerizada</h3>
+                <div className="w-12 h-1 bg-slate-300 rounded-full"></div>
+              </div>
+              <div className="relative rounded-xl overflow-hidden h-[600px]">
+                <img src={resolveAsset('/equipamentos-oficina-tecnica.png')} alt="Equipamentos Oficina Técnica" className="w-full h-full object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-r from-slate-800 via-slate-800/50 to-transparent"></div>
+                <div className="absolute inset-0 p-16 flex flex-col justify-between">
+                  <div>
+                    <h4 className="text-5xl font-bold text-white mb-4" style={{textShadow: '0 4px 12px rgba(0,0,0,0.6)'}}>Oficina Técnica</h4>
+                    <p className="text-gray-100 text-base mb-8 leading-relaxed max-w-2xl font-bold" style={{textShadow: '0 2px 8px rgba(0,0,0,0.5)'}}>Equipamentos para soldagem, manutenção e montagem no local da obra.</p>
+                  </div>
+                  <div className="grid grid-cols-2 gap-4 text-base text-gray-100 max-w-2xl">
+                    {['Solda MIG/MAG', 'Compressores', 'Furadeiras', 'Esmerilhadeiras', 'Marteletes', 'Ferramentas Pneumáticas'].map((tool) => (
+                      <div key={tool} className="flex items-center gap-3 font-bold" style={{textShadow: '0 2px 6px rgba(0,0,0,0.5)'}}><span className="text-slate-400 text-lg">→</span> {tool}</div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section className="pt-8">
+              <div className="mb-12">
+                <h3 className="text-4xl font-semibold text-white mb-3">Mobilização & Áreas de Atuação</h3>
+                <div className="w-12 h-1 bg-slate-300 rounded-full"></div>
+              </div>
+              <div className="space-y-10">
+                <div className="relative rounded-xl overflow-hidden h-[500px]">
+                  <img src={resolveAsset('/mobilizacao-canteiro.png')} alt="Mobilização de Canteiro" className="w-full h-full object-cover" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-slate-800 via-slate-800/50 to-transparent"></div>
+                  <div className="absolute inset-0 p-16 flex flex-col justify-center">
+                    <h4 className="text-4xl font-bold text-white mb-6" style={{textShadow: '0 4px 12px rgba(0,0,0,0.6)'}}>Mobilização</h4>
+                    <ul className="space-y-3 text-base text-gray-100 max-w-xl font-bold">
+                      <li className="flex items-center gap-3" style={{textShadow: '0 2px 6px rgba(0,0,0,0.5)'}}><span className="text-slate-400 text-lg">→</span> Maior agilidade no início</li>
+                      <li className="flex items-center gap-3" style={{textShadow: '0 2px 6px rgba(0,0,0,0.5)'}}><span className="text-slate-400 text-lg">→</span> Organização de campo</li>
+                      <li className="flex items-center gap-3" style={{textShadow: '0 2px 6px rgba(0,0,0,0.5)'}}><span className="text-slate-400 text-lg">→</span> Autonomia operacional</li>
+                      <li className="flex items-center gap-3" style={{textShadow: '0 2px 6px rgba(0,0,0,0.5)'}}><span className="text-slate-400 text-lg">→</span> Redução de custos</li>
+                      <li className="flex items-center gap-3" style={{textShadow: '0 2px 6px rgba(0,0,0,0.5)'}}><span className="text-slate-400 text-lg">→</span> Eficiência de gestão</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div className="relative rounded-xl overflow-hidden h-[500px]">
+                  <img src={resolveAsset('/equipe-construcao-civil.png')} alt="Equipe Construção Civil" className="w-full h-full object-cover" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-slate-800 via-slate-800/50 to-transparent"></div>
+                  <div className="absolute inset-0 p-16 flex flex-col justify-center">
+                    <h4 className="text-4xl font-bold text-white mb-6" style={{textShadow: '0 4px 12px rgba(0,0,0,0.6)'}}>Áreas de Atuação</h4>
+                    <div className="grid grid-cols-2 gap-4 text-base text-gray-100 max-w-xl font-bold">
+                      {['Construção', 'Infraestrutura', 'Petróleo & Gás', 'Offshore', 'Portuário', 'Indústria', 'Energia', 'Logística', 'Estaleiros', 'FPSO'].map(area => (
+                        <div key={area} className="flex items-center gap-3" style={{textShadow: '0 2px 6px rgba(0,0,0,0.5)'}}><span className="text-slate-400 text-lg">→</span> {area}</div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section className="pt-8">
+              <div className="mb-8">
+                <h3 className="text-3xl font-semibold text-white mb-2">Por Que Escolher a Prudência?</h3>
+                <div className="w-12 h-1 bg-slate-300 rounded-full"></div>
+              </div>
+              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-12">
+                {[
+                  { icon: Clock, title: '30+ Anos', desc: 'Experiência consolidada' },
+                  { icon: Building2, title: 'Estrutura Própria', desc: 'Containers operacionais' },
+                  { icon: TrendingUp, title: 'Mobilização Ágil', desc: 'Rápida implantação' },
+                  { icon: Users, title: 'Equipe Certificada', desc: 'Profissionais qualificados' },
+                ].map((item, idx) => (
+                  <div key={idx} className="flex flex-col gap-4">
+                    <item.icon className="h-6 w-6 text-slate-400" />
+                    <div>
+                      <h5 className="font-semibold text-white mb-2">{item.title}</h5>
+                      <p className="text-sm text-gray-400">{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            <section className="pt-8">
+              <div className="mb-8">
+                <h3 className="text-3xl font-semibold text-white mb-2">Compromisso com Excelência</h3>
+                <div className="w-12 h-1 bg-slate-300 rounded-full"></div>
+              </div>
+              <div className="grid md:grid-cols-3 gap-12">
+                <div className="pb-8 border-b border-slate-700 md:border-b-0 md:border-r md:pr-8">
+                  <h5 className="text-lg font-semibold text-white mb-3">Segurança</h5>
+                  <p className="text-gray-300 text-sm leading-relaxed">Preservação da vida e integridade como prioridade máxima em todas as operações.</p>
+                </div>
+                <div className="pb-8 border-b border-slate-700 md:border-b-0 md:border-r md:px-8">
+                  <h5 className="text-lg font-semibold text-white mb-3">Qualidade</h5>
+                  <p className="text-gray-300 text-sm leading-relaxed">Conformidade normativa e excelência técnica em cada projeto executado.</p>
+                </div>
+                <div className="md:pl-8">
+                  <h5 className="text-lg font-semibold text-white mb-3">Eficiência</h5>
+                  <p className="text-gray-300 text-sm leading-relaxed">Otimização de processos sem comprometer a segurança operacional.</p>
+                </div>
+              </div>
+            </section>
+
+            <section className="pt-8">
+              <div className="mb-8">
+                <h3 className="text-3xl font-semibold text-white mb-2">Projetos Estratégicos</h3>
+                <div className="w-12 h-1 bg-slate-300 rounded-full"></div>
+              </div>
+              <p className="text-gray-300 text-sm mb-12">Fortalecimento institucional junto a investidores e empresas internacionais.</p>
+              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                {['Porto Seco / Hub Logístico', 'BR-101 Infraestrutura', 'Projetos Industriais', 'Treinamentos'].map(proj => (
+                  <div key={proj} className="pb-4 border-b border-slate-700 text-gray-200 font-medium text-sm">{proj}</div>
+                ))}
+              </div>
+            </section>
+
+            <section className="pt-20 border-t border-slate-700">
+              <div className="max-w-2xl mx-auto text-center">
+                <h4 className="text-3xl font-semibold text-white mb-4">Pronto para transformar sua operação?</h4>
+                <p className="text-gray-300 text-base mb-10 leading-relaxed">Entre em contato com nossos especialistas e descubra como a Prudência Engenharia pode otimizar segurança e eficiência na sua construção.</p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <button className="flex items-center justify-center gap-2 bg-slate-700 text-white px-8 py-3 rounded-lg font-medium hover:bg-slate-600 transition">
+                    <Mail className="h-5 w-5" />
+                    Entre em Contato
+                  </button>
+                  <button className="flex items-center justify-center gap-2 border border-slate-600 text-gray-300 px-8 py-3 rounded-lg font-medium hover:bg-slate-800 transition">
+                    <FileText className="h-5 w-5" />
+                    Solicitar Proposta
+                  </button>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  return (
+    <section className="relative min-h-screen pt-32 pb-20" style={layerStyle('/atuacao-porto-industrial.png')}>
+      <div className="absolute inset-0 bg-slate-900/70"></div>
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex flex-col justify-center min-h-[calc(100vh-10rem)] page-content-reveal">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Onde Atuamos</h2>
+          <div className="w-24 h-1 bg-amber-500 mx-auto"></div>
+          <p className="mt-6 text-xl text-gray-300 max-w-2xl mx-auto font-light text-center">Especialistas em segurança para operações complexas e de alto risco.</p>
+        </div>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          {areas.map((area, index) => (
+            <button key={index} type="button" onClick={() => setActiveArea(area.title)} className="bg-white/10 backdrop-blur-md border border-white/20 p-8 rounded-2xl text-center hover:bg-amber-500/90 group transition-all duration-300 cursor-pointer shadow-lg hover:shadow-amber-500/20 hover:-translate-y-2">
+              <area.icon className="h-12 w-12 text-amber-400 group-hover:text-slate-900 mx-auto mb-4 transition duration-300" />
+              <h3 className="text-lg font-bold text-white group-hover:text-slate-900 transition duration-300">{area.title}</h3>
+            </button>
+          ))}
+        </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 const ServicosPage = ({ navigate }) => (
   <section
