@@ -1,19 +1,16 @@
-﻿# github_repo_copy
+# React + Vite
 
-Esta pasta e uma copia dos arquivos essenciais para o Claude Design trabalhar com contexto real do site Prudencia sem descaracterizar o visual.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## Conteudo principal
-- `DESIGN.md`: regras de identidade visual e guia de geracao de imagens.
-- `tokens-reference.css`: mapa de tokens de cor/estilo.
-- `src/`: implementacao principal da interface (`NewApp.jsx`, `index.css`, `main.jsx`, traducoes).
-- `public/`: imagens e assets usados pelo site (logo, heros, fotos de contexto, assets gerados).
-- `package.json`, `vite.config.js`, `index.html`: contexto de build e estrutura.
+Currently, two official plugins are available:
 
-## Como usar no GitHub + Claude Design
-1. Suba esta pasta para o repositorio (ou mantenha os mesmos arquivos no repo principal).
-2. No Claude Design, adicione `DESIGN.md` em **Add assets**.
-3. Conecte o repositorio e inclua `src/` + `public/` + `DESIGN.md` no contexto.
-4. Para imagens novas, siga a secao de guia visual no `DESIGN.md`.
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
 
-## Observacao
-- O objetivo e preservar estilo: dark industrial + acento ambar + navy da marca + fotografia operacional real.
+## React Compiler
+
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+
+## Expanding the ESLint configuration
+
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.

@@ -21,7 +21,8 @@ import {
   Flame,
   ArrowLeft,
   Zap,
-  Activity
+  Activity,
+  AlertTriangle
 } from 'lucide-react';
 
 // --- DADOS COMPLETOS DO PORTFÓLIO (SUBPÁGINAS) ---
@@ -192,6 +193,39 @@ const portfolioData = {
         ]
       }
     ]
+  },
+  sinalizacao: {
+    title: 'Sinalização de Segurança',
+    icon: <AlertTriangle size={40} />,
+    description: 'Projetos completos de sinalização industrial e fornecimento de placas de alta durabilidade para garantir conformidade normativa e redução de riscos.',
+    sections: [
+      {
+        subtitle: 'Projetos e Execução',
+        items: [
+          { name: 'Projetos de Sinalização Industrial', desc: 'Desenvolvimento conforme NR-26, NR-12, NR-20 e normas ISO para identificação de riscos em ambientes industriais.' },
+          { name: 'Mapeamento de Riscos e Fluxos', desc: 'Diagnóstico técnico in loco para avaliar riscos e definir estrategicamente os pontos de sinalização mais críticos.' },
+          { name: 'Sinalização de Rotas de Fuga', desc: 'Elaboração e implantação de sistemas de evacuação com sinalização fotoluminescente atendendo às normas de emergência.' },
+          { name: 'Implantação Completa em Campo', desc: 'Execução profissional da sinalização garantindo conformidade normativa e preparação para auditorias e fiscalizações.' },
+        ]
+      },
+      {
+        subtitle: 'Produtos e Fornecimento',
+        items: [
+          { name: 'Placas de Sinalização Industrial', desc: 'Fabricação com pictogramas conforme ISO 7010 em materiais como PVC, alumínio, ACM e fotoluminescente.' },
+          { name: 'Personalização Conforme Layout', desc: 'Produção sob medida atendendo especificidades técnicas e layout de cada cliente.' },
+          { name: 'Materiais de Alta Durabilidade', desc: 'Resistência comprovada a intempéries, produtos químicos e ambientes agressivos com padrão técnico profissional.' },
+        ]
+      },
+      {
+        subtitle: 'Aplicações Setoriais',
+        items: [
+          { name: 'Indústria e Manufatura', desc: 'Sinalização completa para ambientes de produção com múltiplos riscos ocupacionais.' },
+          { name: 'Cerâmicas e Mineração', desc: 'Sinalização especializada para ambientes com poeira, exposição química e riscos específicos do setor.' },
+          { name: 'Áreas Classificadas e ATEX', desc: 'Sinalização adequada para zonas com risco de explosão (atmosferas explosivas).' },
+          { name: 'Obras e Construção', desc: 'Sinalização de canteiros, demarcação de áreas de risco, rotas de circulação segura e pontos de encontro.' },
+        ]
+      }
+    ]
   }
 };
 
@@ -277,7 +311,7 @@ export default function App() {
                         </div>
                         <div>
                           <h3 className="text-lg font-bold text-gray-900 mb-1">{item.name}</h3>
-                          <p className="text-gray-600 leading-relaxed">{item.desc}</p>
+                          <p className="text-gray-600 leading-relaxed text-justify">{item.desc}</p>
                         </div>
                       </div>
                     ))}
@@ -296,7 +330,7 @@ export default function App() {
                 <div className="space-y-4 mb-8">
                   <div className="flex items-center text-[#1a2b6d]">
                     <Phone size={20} className="mr-3" />
-                    <span className="font-bold">+55 (00) 00000-0000</span>
+                    <div className="font-bold"><div>+55 (22) 2733-0232</div><div>+55 (22) 99838-6553</div></div>
                   </div>
                   <div className="flex items-center text-[#1a2b6d]">
                     <Mail size={20} className="mr-3" />
@@ -458,7 +492,7 @@ export default function App() {
                     A <strong>Prudência Engenharia & Consultoria</strong> é uma empresa brasileira especializada em Saúde, Segurança do Trabalho, Gerenciamento de Riscos e Capacitação Técnica.
                   </p>
                   <p className="text-gray-600 text-lg mb-8">
-                    Nosso alcance é global, atendendo empresas em todo o Brasil e no exterior, com ampla experiência em equipes multinacionais, operações embarcadas e treinamentos bilíngues.
+                    Nosso alcance é global, atendendo empresas em todo o Brasil e no exterior, com ampla experiência em equipes multinacionais, operações embarcadas e treinamentos em Inglês, Espanhol e Português.
                   </p>
 
                   <div className="space-y-4">
@@ -583,6 +617,18 @@ export default function App() {
                   </div>
                 </div>
 
+                {/* 7. Sinalização de Segurança */}
+                <div className="bg-gray-50 rounded-2xl shadow-sm border border-gray-200 hover:shadow-xl hover:border-blue-300 transition-all p-8 flex flex-col group cursor-pointer" onClick={() => navigateTo('sinalizacao')}>
+                  <div className="bg-[#1a2b6d] text-[#f4ea24] w-16 h-16 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-md">
+                    <AlertTriangle size={32} />
+                  </div>
+                  <h4 className="text-2xl font-bold text-gray-900 mb-3">Sinalização de Segurança</h4>
+                  <p className="text-gray-600 mb-6 flex-grow">Projetos de sinalização conforme NR-26, NR-12, fornecimento de placas e implantação em campo para rotas de fuga.</p>
+                  <div className="flex items-center font-bold text-[#1a2b6d] group-hover:text-blue-600">
+                    Saber mais <ArrowLeft size={18} className="ml-2 rotate-180" />
+                  </div>
+                </div>
+
               </div>
             </div>
           </section>
@@ -621,16 +667,16 @@ export default function App() {
                       </div>
                       <div>
                         <h4 className="font-bold text-gray-900">Telefone / WhatsApp</h4>
-                        <p className="text-gray-600">+55 (00) 00000-0000</p>
+                        <div className="text-gray-600"><div>+55 (22) 2733-0232</div><div>+55 (22) 99838-6553</div></div>
                       </div>
                     </div>
                     <div className="flex items-start">
                       <div className="bg-blue-50 p-3 rounded-full mr-4 text-[#1a2b6d]">
                         <Mail size={24} />
                       </div>
-                      <div>
+                      <div className="overflow-hidden">
                         <h4 className="font-bold text-gray-900">E-mail</h4>
-                        <p className="text-gray-600">contato@prudenciaengenharia.com.br</p>
+                        <p className="text-gray-600 break-all leading-tight">contato@prudenciaengenharia.com.br</p>
                       </div>
                     </div>
                     <div className="flex items-start">
@@ -731,6 +777,7 @@ export default function App() {
                 <li><button onClick={() => navigateTo('auditorias')} className="hover:text-white transition-colors text-left">Auditorias e Conformidade</button></li>
                 <li><button onClick={() => navigateTo('consultoria')} className="hover:text-white transition-colors text-left">Consultoria Técnica</button></li>
                 <li><button onClick={() => navigateTo('maodeobra')} className="hover:text-white transition-colors text-left">Fornecimento de Mão de Obra</button></li>
+                <li><button onClick={() => navigateTo('sinalizacao')} className="hover:text-white transition-colors text-left">Sinalização de Segurança</button></li>
               </ul>
             </div>
 
