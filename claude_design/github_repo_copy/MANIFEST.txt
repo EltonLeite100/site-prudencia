@@ -1,0 +1,21 @@
+﻿DESIGN.md
+index.html
+MANIFEST.txt
+package.json
+public\assets\index-B_jsv7js.css
+public\assets\index-W4JqGyP1.js
+public\FOTO ELTON.webp
+public\icons.svg
+public\index.html
+public\logo-prudencia.jpeg
+public\logo-prudencia.webp
+public\logo-prudencia-sem-fundo.webp
+README.md
+src\App.jsx
+src\index.css
+src\main.jsx
+src\NewApp.jsx
+src\translations\data.js
+src\translations\translations.js
+tokens-reference.css
+vite.config.js
